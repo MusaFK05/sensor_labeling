@@ -75,3 +75,9 @@ class SensorDataProcessor:
         data = data.resample('5T').mean()
         
         return data
+
+def labeling(df):
+    process_data = SensorDataProcessor(df)
+    process_data.apply_mappings()
+    processed_df = process_data.process_data()
+    return processed_df
